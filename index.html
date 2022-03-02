@@ -14,23 +14,30 @@
   </head>
 
   <body class="container">
-      
-    <audio data-bpm="60" data-beat="0" class="audioz" id="audioz1" preload="metadata" controls>
+      <div>a<input type="number" onkeyup="changeBeat(this)">
+    <audio data-bpm="60" data-beat="5" class="audioz" id="audioz1" preload="metadata" >
         <source src="prisesk_4onflor.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
-      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" controls>
+    </div>
+    <div>b<input type="number" onkeyup="changeBeat(this)">
+      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" >
         <source src="prisesk_gmelody.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
-      <audio data-bpm="60" data-beat="1" class="audioz" id="audioz3" preload="metadata" controls>
+    </div>
+    <div>c<input type="number" onkeyup="changeBeat(this)">
+      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz3" preload="metadata" >
         <source src="sadnessv5_bassline.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
-      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" controls>
+    </div>
+    <div>d<input type="number" onkeyup="changeBeat(this)">
+      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" >
         <source src="prisesk_dsmelody.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
+    </div>
       <button id="bpmic" onclick="startThisBitch()">bpm</button>
     <div>v:xz</div>
     </body>
@@ -52,6 +59,9 @@
         }
         function startThisBitch(){
             setInterval(updateTimed,10);
+        }
+        function changeBeat(e){
+            e.parentElement.getElementsByClassName("audioz")[0].dataset.beat=e.value;
         }
         
         function updateTimed(){
