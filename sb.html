@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>testthing</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+    <!-- Include our Javascript -->
+    
+
+  </head>
+
+  <body class="container">
+      
+    <audio data-bpm="60" data-beat="0" class="audioz" id="audioz1" preload="metadata" controls>
+        <source src="prisesk_4onflor.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+      </audio>
+      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" controls>
+        <source src="prisesk_gmelody.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+      </audio>
+      <audio data-bpm="60" data-beat="1" class="audioz" id="audioz3" preload="metadata" controls>
+        <source src="sadnessv5_bassline.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+      </audio>
+      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" controls>
+        <source src="prisesk_dsmelody.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+      </audio>
+      <button id="bpminc">bpm</button>
+    </body>
+    <script>
+        var allaudioz=document.getElementsByClassName("audioz");
+        var nbpm=124;
+        var beatTimer=0
+        var beat=0;
+        var pf1=true;
+        var pf2=true;
+        var pf3=true;
+        var pf4=true;
+
+        for (let i = 0; i < allaudioz.length; i++) {
+            const e = allaudioz[i];
+            e.onloadedmetadata=function(){
+                e.dataset.dur=e.duration;
+            }
+        }
+        setInterval(updateTimed,10);
+        function updateTimed(){
+            //console.log((((60/nbpm)*1000)*16));
+           
+            
+            if((((60/nbpm)*1000)*16)>beatTimer){
+                if (pf1) {
+                    for (let i = 0; i < allaudioz.length; i++) {
+                        const e = allaudioz[i];
+                        console.log(e);
+                        if (e.dataset.beat==0) {
+                            var ndur=((60/(+nbpm))*16);
+                e.playbackRate=e.dataset.dur/ndur;
+                console.log(e.playbackRate);
+                e.currentTime = 0
+                e.play();
+                        }
+                    }
+                    
+                pf1=false;
+                }
+               beat=0;
+           }
+            if((((60/nbpm)*1000)*16)<=beatTimer){
+                if (pf2) {
+                    for (let i = 0; i < allaudioz.length; i++) {
+                        const e = allaudioz[i];
+                        if (e.dataset.beat==0||e.dataset.beat==1) {
+                            var ndur=((60/(+nbpm))*16);
+                e.playbackRate=e.dataset.dur/ndur;
+                console.log(e.playbackRate);
+                e.currentTime = 0
+                e.play();
+                        }
+                    }
+                    
+                pf2=false;
+                }
+               
+                beat=1;
+            }
+            if((((60/nbpm)*1000)*32)<=beatTimer){
+                if (pf3) {
+                    for (let i = 0; i < allaudioz.length; i++) {
+                        const e = allaudioz[i];
+                        if (e.dataset.beat==0||e.dataset.beat==1||e.dataset.beat==2) {
+                            var ndur=((60/(+nbpm))*16);
+                e.playbackRate=e.dataset.dur/ndur;
+                console.log(e.playbackRate);
+                e.currentTime = 0
+                e.play();
+                        }
+                    }
+                    
+                pf3=false;
+                }
+                beat=2;
+            }
+                if((((60/nbpm)*1000)*48)<=beatTimer){
+                    if (pf4) {
+                    for (let i = 0; i < allaudioz.length; i++) {
+                        const e = allaudioz[i];
+                        if (e.dataset.beat==0||e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3) {
+                            var ndur=((60/(+nbpm))*16);
+                e.playbackRate=e.dataset.dur/ndur;
+                console.log(e.playbackRate);
+                e.currentTime = 0
+                e.play();
+                        }
+                    }
+                    
+                pf4=false;
+                }
+                beat=3;
+            }
+            if((((60/nbpm)*1000)*64)<=beatTimer){
+                for (let i = 0; i < allaudioz.length; i++) {
+                    const e = allaudioz[i];
+                e.currentTime = 0
+                e.pause();
+      
+                        
+                    }
+                    pf1=true;
+         pf2=true;
+         pf3=true;
+         pf4=true;
+              beatTimer=-10;
+              beat=0;
+              
+          }
+            console.log(beat+pf1);
+           
+           
+
+            beatTimer=beatTimer+10;
+        }
+        function playStuff(){
+            switch (beat) {
+                case 0:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
+        document.getElementById("bpminc").addEventListener("click", function(){bpminc();});
+        function bpminc(){
+            console.log(allaudioz);
+            for (let i = 0; i < allaudioz.length; i++) {
+                const e = allaudioz[i];
+                var ndur=((60/(+nbpm))*16);
+                e.playbackRate=e.dataset.dur/ndur;
+                console.log(e.playbackRate);
+                e.play();
+                setInterval(resetStuff, 10);
+                function resetStuff(){
+                    var buffer = .2
+                     //console.log(e.currentTime);
+                    if(e.currentTime > e.duration - buffer){
+                    e.currentTime = 0
+                    e.play()
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+   
+        </script>
+</html>
