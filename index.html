@@ -64,7 +64,7 @@
       </audio>
     </div>
       <button id="bpmic" onclick="startThisBitch()">bpm</button>
-    <div>v:akurat</div>
+    <div>v:prekum</div>
     <input type="number" onkeyup="changeBpm(this)" value="120">
     </body>
     <script>
@@ -138,7 +138,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 }
                beat=0;
            }
-            if((((60/nbpm)*1000)*16)<=beatTimer){
+            if((((60/nbpm)*1000)*16)<=beatTimer-20){
                 if (pf2) {
                     for (let i = 0; i < allaudioz.length; i++) {
                         const e = allaudioz[i];
@@ -157,7 +157,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                
                 beat=1;
             }
-            if((((60/nbpm)*1000)*32)<=beatTimer){
+            if((((60/nbpm)*1000)*32)<=beatTimer-20){
                 if (pf3) {
                     for (let i = 0; i < allaudioz.length; i++) {
                         const e = allaudioz[i];
@@ -175,7 +175,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 }
                 beat=2;
             }
-                if((((60/nbpm)*1000)*48)<=beatTimer){
+                if((((60/nbpm)*1000)*48)<=beatTimer-20){
                     if (pf4) {
                     for (let i = 0; i < allaudioz.length; i++) {
                         const e = allaudioz[i];
@@ -193,12 +193,13 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 }
                 beat=3;
             }
-            if((((60/nbpm)*1000)*64)<=beatTimer){
+            if((((60/nbpm)*1000)*64)<=beatTimer-20){
                 for (let i = 0; i < allaudioz.length; i++) {
                     const e = allaudioz[i];
+                    e.pause();
                 e.currentTime = 0
                 e.volume=.7;
-                e.pause();
+                
       
                         
                     }
