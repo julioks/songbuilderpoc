@@ -39,11 +39,12 @@
       </audio>
     </div>
       <button id="bpmic" onclick="startThisBitch()">bpm</button>
-    <div>v:xz</div>
+    <div>v:xuj</div>
+    <input type="number" onkeyup="changeBpm(this)" value="120">
     </body>
     <script>
         var allaudioz=document.getElementsByClassName("audioz");
-        var nbpm=124;
+        var nbpm=120;
         var beatTimer=0
         var beat=0;
         var pf1=true;
@@ -63,7 +64,9 @@
         function changeBeat(e){
             e.parentElement.getElementsByClassName("audioz")[0].dataset.beat=e.value;
         }
-        
+        function changeBpm(e){
+            nbpm=e.value;
+        }
         function updateTimed(){
             //console.log((((60/nbpm)*1000)*16));
            
