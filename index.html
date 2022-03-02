@@ -31,7 +31,7 @@
         <source src="prisesk_dsmelody.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
-      <button id="bpminc">bpm</button>
+      <button id="bpmic" onclick="startThisBitch()">bpm</button>
     </body>
     <script>
         var allaudioz=document.getElementsByClassName("audioz");
@@ -49,7 +49,10 @@
                 e.dataset.dur=e.duration;
             }
         }
-        setInterval(updateTimed,10);
+        function startThisBitch(){
+            setInterval(updateTimed,10);
+        }
+        
         function updateTimed(){
             //console.log((((60/nbpm)*1000)*16));
            
