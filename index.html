@@ -22,7 +22,7 @@
             <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
             <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
           </select>
-    <audio data-bpm="60" data-beat="5" class="audioz" id="audioz1" preload="metadata" >
+    <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz1" preload="metadata" >
         <source src="prisesk_4onflor.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
@@ -34,7 +34,7 @@
         <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
         <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
       </select>
-      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" >
+      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" >
         <source src="prisesk_gmelody.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
@@ -46,7 +46,7 @@
         <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
         <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
       </select>
-      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz3" preload="metadata" >
+      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz3" preload="metadata" >
         <source src="sadnessv5_bassline.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
@@ -58,13 +58,13 @@
         <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
         <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
       </select>
-      <audio data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" >
+      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" >
         <source src="prisesk_dsmelody.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
       </audio>
     </div>
       <button id="bpmic" onclick="startThisBitch()">bpm</button>
-    <div>v:#how bored r u</div>
+    <div>v:tyleu kurva</div>
     <input type="number" onkeyup="changeBpm(this)" value="120">
     </body>
     <script>
@@ -115,6 +115,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 e.playbackRate=e.dataset.dur/ndur;
                 console.log(e.playbackRate);
                 e.currentTime = 0
+                e.volume=.7;
                 e.play();
                         }
                     }
@@ -132,6 +133,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 e.playbackRate=e.dataset.dur/ndur;
                 console.log(e.playbackRate);
                 e.currentTime = 0
+                e.volume=.7;
                 e.play();
                         }
                     }
@@ -150,6 +152,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 e.playbackRate=e.dataset.dur/ndur;
                 console.log(e.playbackRate);
                 e.currentTime = 0
+                e.volume=.7;
                 e.play();
                         }
                     }
@@ -167,6 +170,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 e.playbackRate=e.dataset.dur/ndur;
                 console.log(e.playbackRate);
                 e.currentTime = 0
+                e.volume=.7;
                 e.play();
                         }
                     }
@@ -179,6 +183,7 @@ e.parentElement.getElementsByTagName("audio")[0].load();
                 for (let i = 0; i < allaudioz.length; i++) {
                     const e = allaudioz[i];
                 e.currentTime = 0
+                e.volume=.7;
                 e.pause();
       
                         
