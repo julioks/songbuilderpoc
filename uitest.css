@@ -12,12 +12,12 @@ body{    font-family: 'Roboto', sans-serif;
     z-index: 0;
     position: relative;
     width: 25%;
-    height: 5em;
+    height: 10em;
     padding: .2rem;
 }
 .partBackground {
     text-align: center;
-    font-size: 7rem;
+    font-size: 12rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -31,8 +31,8 @@ body{    font-family: 'Roboto', sans-serif;
  }
  .partName{
      width: 100%;
-    font-size: 1.2rem;
-    height: 20%;
+    font-size: 3rem;
+    height: 25%;
     text-overflow: clip;
     overflow: hidden;
     white-space: nowrap;
@@ -51,6 +51,7 @@ body{    font-family: 'Roboto', sans-serif;
 
 }
 .partSelector{
+    font-size: 2rem;
     top: 33%;
     position: absolute;
     width: 45%;
@@ -59,6 +60,7 @@ body{    font-family: 'Roboto', sans-serif;
     margin-left: 50%;
     border: none;
 }
+
 .partBpm, .partKey{
 
 }
@@ -70,6 +72,7 @@ body{    font-family: 'Roboto', sans-serif;
     bottom: 0;
 }
 .topPart{
+    font-size: 3rem;
     display: flex;
     position: relative;
     width: 100%;
@@ -88,5 +91,6 @@ body{    font-family: 'Roboto', sans-serif;
     background-color: inherit;
     width: 33%;
     border: none;
+    font-size: inherit;
 }
 
