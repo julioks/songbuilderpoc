@@ -27,8 +27,8 @@ var pSBC=(p,c0,c1,l)=>{
     if(h)return"rgb"+(f?"a(":"(")+r+","+g+","+b+(f?","+m(a*1000)/1000:"")+")";
     else return"#"+(4294967296+r*16777216+g*65536+b*256+(f?m(a*255):0)).toString(16).slice(1,f?undefined:-2)
 }
-const colr = "#6dcfa0";
-var amountadjust=.15;
+const colr = "#417a63";
+var amountadjust=-.15;
 function colorLines(){
     var singlelines = document.getElementsByClassName("single");
     for (let i = 0; i < singlelines.length; i++) {
@@ -108,28 +108,31 @@ function step() {
 function setFlags(){
     const beatToStep=((60/globalBpm)*100);
     if ((beatToStep*16)>steptime) {
-        if (pf1) {
-            for (let i = 0; i < audioElements.length; i++) {
-                const e = audioElements[i];
+        for (let i = 0; i < audioElements.length; i++) {
+            const e = audioElements[i];
+            if (e.dataset.beat==1) {
+                e.playbackRate=e.duration/((60/(+globalBpm))*16);
+            }
+            if (pf1) {
                 if (e.dataset.beat==1) {
                     e.pause();
                     e.currentTime=0;
-                    e.playbackRate=e.duration/((60/(+globalBpm))*16);
                     e.play();
                 }
             }
-            console.log(steptime-stepoffset)
         }
         pf1=false;
     }
     if ((beatToStep*16)<=steptime-stepoffset) {
-        if (pf2) {
-            for (let i = 0; i < audioElements.length; i++) {
-                const e = audioElements[i];
+        for (let i = 0; i < audioElements.length; i++) {
+            const e = audioElements[i];
+            if (e.dataset.beat==1||e.dataset.beat==2) {
+                e.playbackRate=e.duration/((60/(+globalBpm))*16);
+            }
+            if (pf2) {
                 if (e.dataset.beat==1||e.dataset.beat==2) {
                     e.pause();
                     e.currentTime=0;
-                    e.playbackRate=e.duration/((60/(+globalBpm))*16);
                     e.play();
                 }
             }
@@ -138,13 +141,15 @@ function setFlags(){
     }
     
     if ((beatToStep*32)<=steptime-(stepoffset*2)) {
-        if (pf3) {
-            for (let i = 0; i < audioElements.length; i++) {
-                const e = audioElements[i];
+        for (let i = 0; i < audioElements.length; i++) {
+            const e = audioElements[i];
+            if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3) {
+                e.playbackRate=e.duration/((60/(+globalBpm))*16);
+            }
+            if (pf3) {
                 if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3) {
                     e.pause();
                     e.currentTime=0;
-                    e.playbackRate=e.duration/((60/(+globalBpm))*16);
                     e.play();
                 }
             }
@@ -152,13 +157,15 @@ function setFlags(){
         pf3=false;
     }
     if ((beatToStep*48)<=steptime-(stepoffset*3)) {
-        if (pf4) {
-            for (let i = 0; i < audioElements.length; i++) {
-                const e = audioElements[i];
+        for (let i = 0; i < audioElements.length; i++) {
+            const e = audioElements[i];
+            if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3||e.dataset.beat==4) {
+                e.playbackRate=e.duration/((60/(+globalBpm))*16);
+            }
+            if (pf4) {
                 if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3||e.dataset.beat==4) {
                     e.pause();
                     e.currentTime=0;
-                    e.playbackRate=e.duration/((60/(+globalBpm))*16);
                     e.play();
                 }
             }
