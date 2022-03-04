@@ -110,7 +110,8 @@ function setFlags(){
     if ((beatToStep*16)>steptime) {
         for (let i = 0; i < audioElements.length; i++) {
             const e = audioElements[i];
-            if (e.dataset.beat==1) {
+            if (isFinite(e.duration) && e.dataset.beat==1) {
+                            console.log(e.duration);
                 e.playbackRate=e.duration/((60/(+globalBpm))*16);
             }
             if (pf1) {
@@ -126,7 +127,7 @@ function setFlags(){
     if ((beatToStep*16)<=steptime-stepoffset) {
         for (let i = 0; i < audioElements.length; i++) {
             const e = audioElements[i];
-            if (e.dataset.beat==1||e.dataset.beat==2) {
+            if (isFinite(e.duration) &&  (e.dataset.beat==1||e.dataset.beat==2)) {
                 e.playbackRate=e.duration/((60/(+globalBpm))*16);
             }
             if (pf2) {
@@ -143,7 +144,7 @@ function setFlags(){
     if ((beatToStep*32)<=steptime-(stepoffset*2)) {
         for (let i = 0; i < audioElements.length; i++) {
             const e = audioElements[i];
-            if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3) {
+            if (isFinite(e.duration) &&  (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3)) {
                 e.playbackRate=e.duration/((60/(+globalBpm))*16);
             }
             if (pf3) {
@@ -159,7 +160,7 @@ function setFlags(){
     if ((beatToStep*48)<=steptime-(stepoffset*3)) {
         for (let i = 0; i < audioElements.length; i++) {
             const e = audioElements[i];
-            if (e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3||e.dataset.beat==4) {
+            if (isFinite(e.duration) &&  ( e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3||e.dataset.beat==4)) {
                 e.playbackRate=e.duration/((60/(+globalBpm))*16);
             }
             if (pf4) {
