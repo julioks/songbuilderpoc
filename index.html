@@ -1,226 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>testthing</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
-
-    <!-- Include our Javascript -->
-    
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>uitest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="uitest.css">
   </head>
-
-  <body class="container">
-      <div>a<input type="number" onkeyup="changeBeat(this)">
-        <select onchange="changeSrc(this);" value="">
-            <option value="open" data-src=" "> </option>
-            <option value="s1" data-src="prisesk_4onflor.mp3">Prisesk 4ondafloor percs</option>
-            <option value="s2" data-src="prisesk_gmelody.mp3">Prisesk backing guitar melody</option>
-            <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
-            <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
-          </select>
-    <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz1" preload="metadata" >
-        <source src="prisesk_4onflor.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-      </audio>
-    </div>
-    <div>b<input type="number" onkeyup="changeBeat(this)"> <select onchange="changeSrc(this);" value="">
-        <option value="open" data-src=" "> </option>
-        <option value="s1" data-src="prisesk_4onflor.mp3">Prisesk 4ondafloor percs</option>
-        <option value="s2" data-src="prisesk_gmelody.mp3">Prisesk backing guitar melody</option>
-        <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
-        <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
-      </select>
-      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz2" preload="metadata" >
-        <source src="prisesk_gmelody.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-      </audio>
-    </div>
-    <div>c<input type="number" onkeyup="changeBeat(this)"> <select onchange="changeSrc(this);" value="">
-        <option value="open" data-src=" "> </option>
-        <option value="s1" data-src="prisesk_4onflor.mp3">Prisesk 4ondafloor percs</option>
-        <option value="s2" data-src="prisesk_gmelody.mp3">Prisesk backing guitar melody</option>
-        <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
-        <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
-      </select>
-      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz3" preload="metadata" >
-        <source src="sadnessv5_bassline.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
-    </div>
-    <div>d<input type="number" onkeyup="changeBeat(this)"> <select onchange="changeSrc(this);" value="">
-        <option value="open" data-src=" "> </option>
-        <option value="s1" data-src="prisesk_4onflor.mp3">Prisesk 4ondafloor percs</option>
-        <option value="s2" data-src="prisesk_gmelody.mp3">Prisesk backing guitar melody</option>
-        <option value="s3" data-src="sadnessv5_bassline.mp3">Saddnessv5 bassline</option>
-        <option value="s4" data-src="prisesk_dsmelody.mp3">Prisesk ds lead melody</option>
-      </select>
-      <audio volume=".7" data-bpm="60" data-beat="5" class="audioz" id="audioz4" preload="metadata" >
-        <source src="prisesk_dsmelody.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-      </audio>
-    </div>
-      <button id="bpmic" onclick="startThisBitch()">bpm</button>
-    <div>v:prekum</div>
-    <input type="number" onkeyup="changeBpm(this)" value="120">
-    </body>
-    <script>
-        var allaudioz=document.getElementsByClassName("audioz");
-        var nbpm=120;
-        var beatTimer=0
-        var beat=0;
-        var pf1=true;
-        var pf2=true;
-        var pf3=true;
-        var pf4=true;
-
-        for (let i = 0; i < allaudioz.length; i++) {
-            const e = allaudioz[i];
-            e.onloadedmetadata=function(){
-                e.dataset.dur=e.duration;
-            }
-        }
-        function startThisBitch(){
-            
-            var interval = 10; // ms
-var expected = Date.now() + interval;
-setTimeout(step, interval);
-function step() {
-    var dt = Date.now() - expected; // the drift (positive for overshooting)
-    if (dt > interval) {
-        // something really bad happened. Maybe the browser (tab) was inactive?
-        // possibly special handling to avoid futile "catch up" run
-    }
-    updateTimed();
-
-    expected += interval;
-    setTimeout(step, Math.max(0, interval - dt)); // take into account drift
-}
-        }
-        function changeBeat(e){
-            e.parentElement.getElementsByClassName("audioz")[0].dataset.beat=e.value;
-        }
-        function changeBpm(e){
-            nbpm=e.value;
-        }
-        function changeSrc(e){
-            var uid = e.options[e.selectedIndex].getAttribute('data-src');
-            
-e.parentElement.getElementsByTagName("source")[0].src=uid;
-console.log(e.parentElement.getElementsByTagName("source")[0].src);
-e.parentElement.getElementsByTagName("audio")[0].load();
-
-            
-        }
-        function updateTimed(){
-            //console.log((((60/nbpm)*1000)*16));
-           
-            
-            if((((60/nbpm)*1000)*16)>beatTimer){
-                if (pf1) {
-                    for (let i = 0; i < allaudioz.length; i++) {
-                        const e = allaudioz[i];
-                        console.log(e);
-                        if (e.dataset.beat==0) {
-                            var ndur=((60/(+nbpm))*16);
-                e.playbackRate=e.dataset.dur/ndur;
-                console.log(e.playbackRate);
-                e.currentTime = 0
-                e.volume=.7;
-                e.play();
-                        }
-                    }
-                    
-                pf1=false;
-                }
-               beat=0;
-           }
-            if((((60/nbpm)*1000)*16)<=beatTimer-20){
-                if (pf2) {
-                    for (let i = 0; i < allaudioz.length; i++) {
-                        const e = allaudioz[i];
-                        if (e.dataset.beat==0||e.dataset.beat==1) {
-                            var ndur=((60/(+nbpm))*16);
-                e.playbackRate=e.dataset.dur/ndur;
-                console.log(e.playbackRate);
-                e.currentTime = 0
-                e.volume=.7;
-                e.play();
-                        }
-                    }
-                    
-                pf2=false;
-                }
-               
-                beat=1;
-            }
-            if((((60/nbpm)*1000)*32)<=beatTimer-20){
-                if (pf3) {
-                    for (let i = 0; i < allaudioz.length; i++) {
-                        const e = allaudioz[i];
-                        if (e.dataset.beat==0||e.dataset.beat==1||e.dataset.beat==2) {
-                            var ndur=((60/(+nbpm))*16);
-                e.playbackRate=e.dataset.dur/ndur;
-                console.log(e.playbackRate);
-                e.currentTime = 0
-                e.volume=.7;
-                e.play();
-                        }
-                    }
-                    
-                pf3=false;
-                }
-                beat=2;
-            }
-                if((((60/nbpm)*1000)*48)<=beatTimer-20){
-                    if (pf4) {
-                    for (let i = 0; i < allaudioz.length; i++) {
-                        const e = allaudioz[i];
-                        if (e.dataset.beat==0||e.dataset.beat==1||e.dataset.beat==2||e.dataset.beat==3) {
-                            var ndur=((60/(+nbpm))*16);
-                e.playbackRate=e.dataset.dur/ndur;
-                console.log(e.playbackRate);
-                e.currentTime = 0
-                e.volume=.7;
-                e.play();
-                        }
-                    }
-                    
-                pf4=false;
-                }
-                beat=3;
-            }
-            if((((60/nbpm)*1000)*64)<=beatTimer-20){
-                for (let i = 0; i < allaudioz.length; i++) {
-                    const e = allaudioz[i];
-                    e.pause();
-                e.currentTime = 0
-                e.volume=.7;
-                
+  <body>
+    <div style="font-size: 5px; top: 0;left: 0;
+    position: absolute;">v:iwannadie</div>
+	<div class="topPart">
+    <div class="topBpm">
+    <input class="topInput" type="number" size="3" value="120"  onkeyup="changeBpm(this)">
       
-                        
-                    }
-                    pf1=true;
-         pf2=true;
-         pf3=true;
-         pf4=true;
-              beatTimer=-10;
-              beat=0;
-              
-          }
-            console.log(beat+pf1);
-           
-           
-
-            beatTimer=beatTimer+10;
-        }
+  </input>
+</div>
+    <div class="topPlayBtn" onclick="play()">
+      Play
+    </div>
+    <div class="topKey" onclick="stop()">stop</div>
+  </div>
+    
+    
+    <script src="uitest.js" defer>
         
+    </script>
+  </body>
 
-
-
-   
-        </script>
 </html>

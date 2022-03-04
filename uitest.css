@@ -1,0 +1,92 @@
+body{    font-family: 'Roboto', sans-serif;
+    background-color: lavenderblush;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.single{ margin-block-end: .5rem;
+    display: flex;
+    width: -webkit-fill-available;
+}
+.part{
+    z-index: 0;
+    position: relative;
+    width: 25%;
+    height: 5em;
+    padding: .2rem;
+}
+.partBackground {
+    text-align: center;
+    font-size: 7rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: min-content;
+    height: min-content;
+    z-index: -1;
+    overflow: hidden;
+ }
+ .partName{
+     width: 100%;
+    font-size: 1.2rem;
+    height: 20%;
+    text-overflow: clip;
+    overflow: hidden;
+    white-space: nowrap;
+ }
+.partContainer{
+    
+    font-size: 2em;
+    text-align: center;
+}
+.partButton{
+
+    float: right;
+
+
+    color: black;
+
+}
+.partSelector{
+    top: 33%;
+    position: absolute;
+    width: 45%;
+    background-color: inherit;
+    border-color: #fff;
+    margin-left: 50%;
+    border: none;
+}
+.partBpm, .partKey{
+
+}
+.partAddData{
+    padding: .2rem;
+    font-size: .75rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.topPart{
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.topBpm,.topKey{
+
+    flex: 1;
+
+}
+.topKey{
+    float: right;
+    text-align: right;
+}
+.topInput{
+    background-color: inherit;
+    width: 33%;
+    border: none;
+}
+
